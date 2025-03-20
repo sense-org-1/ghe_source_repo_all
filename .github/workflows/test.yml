@@ -3,7 +3,7 @@ name: Define and Display Variables
 on:
   push:
     branches: [ main ]
-
+  workflow_dispatch:
 jobs:
   display-vars:
     runs-on: ubuntu-latest
