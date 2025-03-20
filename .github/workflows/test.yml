@@ -1,0 +1,25 @@
+name: Define and Display Variables
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  display-vars:
+    runs-on: ubuntu-latest
+    # Define an environment variable for the whole job
+    env:
+      JOB_VAR: "Hello from the job-level variable!"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Display job-level variable
+        run: |
+          echo "JOB_VAR is: $JOB_VAR"
+
+      - name: Define and display a step-level variable
+        run: |
+          STEP_VAR="Hello from the step-level variable!"
+          echo "STEP_VAR is: $STEP_VAR"
