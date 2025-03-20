@@ -1,0 +1,25 @@
+name: TEST-GHA
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  display-vars:
+    runs-on: ubuntu-latest
+    # Define an environment variable for the whole job
+    env:
+      TES_VAR: "Hello from GHA!"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Display variable
+        run: |
+          echo "JOB_VAR is: $TES_VAR"
+
+      - name: Define and display a step-level variable
+        run: |
+          STEP_VAR=" step-level variable testing !"
+          echo "STEP_VAR is: $STEP_VAR"
